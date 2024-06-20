@@ -14,6 +14,7 @@ pip install -r requirements.txt
 ```
 
 # Project Structure 
+```sh 
 arc_lmpc
 ├── LICENSE
 ├── README.md
@@ -38,6 +39,7 @@ arc_lmpc
     ├── model.py
     ├── track.py
     └── track_bez.py
+ ```
 
 # Usage
 1. 
