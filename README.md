@@ -67,6 +67,21 @@ In best lap we're plotting the lap=30 and the evolutions of velocity, accelerati
  
 ![Demo](gif_images/lap_gif.gif)
 
+# Algorithm explanation
+The LMPC Convex Hull based algorithm works in this way:
+1. The set of K nearest neighbors is extracted from the j-l = 2 previous iterations. In this case, K=10 (number of neighbors).
+ 2. From the convex hull of the neighbors the yellow dot is extracted that is feasible to be the last point of the horizon and whose cost is lower; at the same time, also the trajectory is computed (blue line)
+3. The first optimum control generated is applied to the car and the algorithm starts again.
+
+**Legends**:
+1. **Red Dot**: Actual CoM of the car
+2. **Green Dot**: Initial Guess of end point
+3. **Black Squares and Triangles**: K-Nearest Neighboors from previous 2 laps
+4. **Yellow Dot**: End Point computed through convex hull
+5. **Blue Line**: Computed trajectory
+
+![Demo](gif_images/algorithm.gif)
+
 # Waterfall Track
 In this plots it's possible to see the evolution of the trajectories in the Waterfall Track (Lap 1, 10, 22).
 ![Alt Text](gif_images/track1traj.png)
