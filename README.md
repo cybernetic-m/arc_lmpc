@@ -14,31 +14,32 @@ pip install -r requirements.txt
 ```
 
 # Project Structure 
+
 ```sh 
 arc_lmpc
 ├── LICENSE
 ├── README.md
 ├── controller 
-│   ├── lmpc_control.py
-│   ├── qlmpc_control.py
-│   └── trivial_control.py
+│   ├── lmpc_control.py => LMPC controller with convex hull (Reference [3])
+│   ├── qlmpc_control.py => LMPC controller with Q Table (Reference [1])
+│   └── trivial_control.py => Path following controller at constant velocity 
 ├── gif_images
 │   ├── gif_race.gif
 │   ├── lap_gif.gif
 │   ├── track1traj.png
 │   ├── track2traj.png
 │   └── track3traj.png
-├── main.py
-├── main_q.py
+├── main.py => Main to execute the LMPC with convex hull
+├── main_q.py => Main to execute the LMPC with Q Table
 ├── requirements.txt
 └── utils
-    ├── animation.py
+    ├── animation.py => File to generate the best lap animation and the race animations
     ├── images
     │   ├── car.png
     │   └── start_flag.png
-    ├── model.py
-    ├── track.py
-    └── track_bez.py
+    ├── model.py => File that contain the kinematic model of the robot and all important quantities
+    ├── track.py => File that contain the track with polynomial interpolation and its definitions
+    └── track_bez.py =>File that contain the track with Bezier Curves and its definitions 
  ```
 
 # Usage
