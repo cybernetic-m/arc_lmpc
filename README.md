@@ -13,9 +13,31 @@ Learning Model Predictive Control for Autonomous Car Racing (ARC) based on metho
 pip install -r requirements.txt
 ```
 
-# Structure 
-The code is structured in this way:
-1.
+# Project Structure 
+arc_lmpc
+├── LICENSE
+├── README.md
+├── controller 
+│   ├── lmpc_control.py
+│   ├── qlmpc_control.py
+│   └── trivial_control.py
+├── gif_images
+│   ├── gif_race.gif
+│   ├── lap_gif.gif
+│   ├── track1traj.png
+│   ├── track2traj.png
+│   └── track3traj.png
+├── main.py
+├── main_q.py
+├── requirements.txt
+└── utils
+    ├── animation.py
+    ├── images
+    │   ├── car.png
+    │   └── start_flag.png
+    ├── model.py
+    ├── track.py
+    └── track_bez.py
 
 # Usage
 1. 
