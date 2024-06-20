@@ -1,7 +1,7 @@
 # Autonomous Car Racing control via LMPC
 Learning Model Predictive Control for Autonomous Car Racing (ARC). 
 
-1. **Planning and Modelling**: In the planning phase we have used two different techniques (**Polynomial Interpolation** and **Beziér Curves**) to plan the trajectory. We have created three different tracks: **Water Fall Track**, **Tornado Circuit** and **Monza Circuit**. In the modelling phase we have model the ARC using the **kinematic model of the bicycle**.
+1. **Planning and Modelling**: In the planning phase we have used two different techniques (**Polynomial Interpolation** and **Beziér Curves**) to plan the trajectory. We have created three different tracks: **Waterfall Track**, **Tornado Circuit** and **Monza Circuit**. In the modelling phase we have model the ARC using the **kinematic model of the bicycle**.
 
 2. **Control**: we have used two different techniques of **LMPC** control described in [1] (**Q Table**) and [3] (**Convex Hull**).
 
@@ -63,19 +63,21 @@ In the race it's possible to see that the LMPC with convex hull at lap=30 perfor
 ![Demo](gif_images/gif_race.gif)
 
 # Best Lap
-In best lap we're plotting the lap=30 
+In best lap we're plotting the lap=30 and the evolutions of velocity, acceleration, steering angle and distance from the center of the track (n)
+ 
 ![Demo](gif_images/lap_gif.gif)
 
-# Water Fall Track
-In this plots it's possible to see the evolution of the trajectories in the Water Fall Track.
+# Waterfall Track
+In this plots it's possible to see the evolution of the trajectories in the Waterfall Track (Lap 1, 10, 22).
 ![Alt Text](gif_images/track1traj.png)
 
 # Tornado Circuit
-In this plots it's possible to see the evolution of the trajectories in the Tornado Circuit.
+In this plots it's possible to see the evolution of the trajectories in the Tornado Circuit (Lap 1, 10, 25).
 ![Alt Text](gif_images/track2traj.png)
 
 # Monza Circuit
-In this plots it's possible to see the evolution of the trajectories in the real Monza Circuit.
+In this plots it's possible to see the evolution of the trajectories in the real Monza Circuit (Lap 1, 10, 25).
+
 ![Alt Text](gif_images/track3traj.png)
 
 # References
