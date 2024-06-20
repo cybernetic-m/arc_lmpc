@@ -58,18 +58,23 @@ python3 main_q.py
 ```
 
 # Race
+In the race it's possible to see that the LMPC with convex hull at lap=30 perform better with respect to the previous iterations. 
 ![Demo](gif_images/gif_race.gif)
 
 # Best Lap
+In best lap we're plotting the lap=30 
 ![Demo](gif_images/lap_gif.gif)
 
 # Water Fall Track
+In this plots it's possible to see the evolution of the trajectories in the Water Fall Track.
 ![Alt Text](gif_images/track1traj.png)
 
 # Tornado Circuit
+In this plots it's possible to see the evolution of the trajectories in the Tornado Circuit.
 ![Alt Text](gif_images/track2traj.png)
 
 # Monza Circuit
+In this plots it's possible to see the evolution of the trajectories in the real Monza Circuit.
 ![Alt Text](gif_images/track3traj.png)
 
 # References
