@@ -47,7 +47,15 @@ arc_lmpc
  ```
 
 # Usage
-1. 
+To use the project you can run:
+1. LMPC Control with Convex Hull
+```sh 
+python3 main.py
+```
+2. LMPC Control with Q Table
+```sh 
+python3 main_q.py
+```
 
 # Race
 ![Demo](gif_images/gif_race.gif)
