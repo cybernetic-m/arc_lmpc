@@ -2,10 +2,14 @@
 Learning Model Predictive Control for Autonomous Car Racing (ARC) based on method explained in
 
 # Installation
-1. Clone the repository: ```sh git clone "https://github.com/cybernetic-m/arc_lmpc.git"
- ```sh cd arc_lmpc
+1. Clone the repository:  
+ ```sh 
+ git clone "https://github.com/cybernetic-m/arc_lmpc.git"
+ cd arc_lmpc
 
-2. Install the dependencies:  ```sh pip install -r requirements.txt
+2. Install the dependencies:  
+```sh 
+pip install -r requirements.txt
 
 # Structure 
 The code is structured in this way:
