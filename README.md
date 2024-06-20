@@ -2,8 +2,10 @@
 Learning Model Predictive Control for Autonomous Car Racing (ARC) based on method explained in
 
 # Installation
-1. Clone the repository: 
-2. Install the dependencies: pip install -r requirements.txt
+1. Clone the repository: ```sh git clone "https://github.com/cybernetic-m/arc_lmpc.git"
+ ```sh cd arc_lmpc
+
+2. Install the dependencies:  ```sh pip install -r requirements.txt
 
 # Structure 
 The code is structured in this way:
@@ -28,12 +30,12 @@ The code is structured in this way:
 ![Alt Text](gif_images/track3traj.png)
 
 # References
-1. [U. Rosolia and F. Borrelli: Learning Model Predictive Control for Iterative
+[1]. [U. Rosolia and F. Borrelli: Learning Model Predictive Control for Iterative
 Tasks. A Data-Driven Control Framework](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8039204).
 
-2. H. Xue et al. : Learning Model Predictive Control with Error Dynamics Regression for Autonomous Racing](https://arxiv.org/pdf/2309.10716).
+[2]. [H. Xue et al. : Learning Model Predictive Control with Error Dynamics Regression for Autonomous Racing](https://arxiv.org/pdf/2309.10716).
 
-3.  [U. Rosolia and F. Borrelli : Learning How to Autonomously Race a Car: A Predictive Control Approach](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8896988).
+[3].  [U. Rosolia and F. Borrelli : Learning How to Autonomously Race a Car: A Predictive Control Approach](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8896988).
 
 
 
