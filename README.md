@@ -59,6 +59,7 @@ python3 main_q.py
 
 # Race
 In the race it's possible to see that the LMPC with convex hull at lap=30 perform better with respect to the previous iterations. 
+
 ![Demo](gif_images/gif_race.gif)
 
 # Best Lap
