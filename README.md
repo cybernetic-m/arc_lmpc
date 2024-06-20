@@ -28,12 +28,12 @@ The code is structured in this way:
 ![Alt Text](gif_images/track3traj.png)
 
 # References
-1[paper_1]. U. Rosolia and F. Borrelli: Learning Model Predictive Control for Iterative
-Tasks. A Data-Driven Control Framework[Link to the paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8039204).
+1. [U. Rosolia and F. Borrelli: Learning Model Predictive Control for Iterative
+Tasks. A Data-Driven Control Framework](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8039204).
 
-2[paper_2]. H. Xue et al. : Learning Model Predictive Control with Error Dynamics Regression for Autonomous Racing [Link to the paper](https://arxiv.org/pdf/2309.10716).
+2. H. Xue et al. : Learning Model Predictive Control with Error Dynamics Regression for Autonomous Racing](https://arxiv.org/pdf/2309.10716).
 
-3[paper_3]. U. Rosolia and F. Borrelli : Learning How to Autonomously Race a Car: A Predictive Control Approach [Link to the paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8896988).
+3.  [U. Rosolia and F. Borrelli : Learning How to Autonomously Race a Car: A Predictive Control Approach](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8896988).
 
 
 
