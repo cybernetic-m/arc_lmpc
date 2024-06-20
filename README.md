@@ -1,5 +1,9 @@
 # Autonomous Car Racing control via LMPC
-Learning Model Predictive Control for Autonomous Car Racing (ARC) based on method explained in
+Learning Model Predictive Control for Autonomous Car Racing (ARC). 
+
+1. Planning and Modelling: In the planning phase we have used two different techniques (Polynomial Interpolation and Beziér Curves) to plan the trajectory. We have created three different tracks: Water Fall Track, Tornado Circuit and Monza Circuit. In the modelling phase we have model the ARC using the kinematic model of the bicycle.
+
+2. Control: we have used two different techniques of LMPC control described in [1] (Q Table) and [3] (Convex Hull).
 
 # Installation
 1. Clone the repository:  
