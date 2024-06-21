@@ -65,7 +65,7 @@ In the race it's possible to see that the LMPC with convex hull at lap=30 perfor
 # Best Lap
 In best lap we're plotting the lap=30 and the evolutions of velocity, acceleration, steering angle and distance from the center of the track (n)
  
-![Demo](gif_images/lap_gif.gif)
+![Demo](gif_images/best_lap.gif)
 
 # Algorithm explanation
 The LMPC Convex Hull based algorithm works in this way:
