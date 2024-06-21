@@ -63,7 +63,7 @@ In the race it's possible to see that the LMPC with convex hull at lap=30 perfor
 ![Demo](gif_images/gif_race.gif)
 
 # Best Lap
-In best lap we're plotting the lap=30 and the evolutions of velocity, acceleration, steering angle and distance from the center of the track (n)
+In best lap we're plotting the lap=41, crc=1 and delta_weight=1 with the evolutions of velocity, acceleration, steering angle and distance from the center of the track (n)
  
 ![Demo](gif_images/best_lap.gif)
 
