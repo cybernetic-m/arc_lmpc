@@ -67,7 +67,9 @@ In the race it's possible to see that the LMPC with convex hull at lap=30 perfor
 # Monza Best Lap
 In this video we're plotting the lap=41 with crc=1 and delta_weight=1.
 In the right plots it's possible to see the evolution of velocity, acceleration, steering angle and distance from the center of the track (n).
- 
+
+
+<img src="gif_images/best_lap.gif" width="860" height="415" alt="Demo"> 
 ![Demo](gif_images/best_lap.gif)
 
 # Algorithm explanation
