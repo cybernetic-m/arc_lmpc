@@ -36,6 +36,7 @@ if user_input == "1":
     # retrieve model
     cascade_falls_track = track.Track(a, b, w)
     tr = cascade_falls_track
+    name = "Waterfall Track"
     print ("You've selected Waterfall Track!")
 
 elif user_input == '2':
@@ -47,6 +48,7 @@ elif user_input == '2':
     # retrieve model 
     tornado_circuit= track.Track(a, b, w)
     tr = tornado_circuit
+    name = "Tornado Circuit"
     print ("You've selected Tornado Circuit!")
 
 elif user_input == "3":
@@ -66,6 +68,7 @@ elif user_input == "3":
     # retrieve model
     monza = track_bez.Track(x_b, y_b, x, y, x_f, y_f, w)
     tr = monza
+    name = "Monza"
     print ("You've selected Monza")
 
 else:
@@ -73,18 +76,17 @@ else:
     exit()
 
 # Plot track
+plt.title(f'Track: {name}')
 tr.plot_track(plt)
 plt.show()
 
-'''
-# Plot curvature
-t = np.linspace(tr.s_low, tr.s_high, 300)
-tau_x = []
-for x in t:
-    tau_x.append(tr.k(x).__float__())
-plt.plot(t, tau_x)
+#Plot Curvature
+plt.title(f'Curvature of: {name}')
+tr.plot_k(plt)
 plt.show()
-'''
+
+
+
 
 backSight = 2   # Number of previous iterations at which the model looks, (j - l) in the paper
 safeSet = []

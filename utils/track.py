@@ -210,3 +210,14 @@ class Track:
 
         plt.gca().add_patch(Polygon(track_polygon, closed=True, color='gray', alpha=0.5))  # Add polygon patch
         plt.gca().set_aspect('equal')  # Set equal aspect ratio for the plot
+
+    def plot_k(self, plt):
+        
+        # Plot curvature
+        t = np.linspace(self.s_low, self.s_high, 300)
+        tau_x = []
+        for x in t:
+            tau_x.append(self.k(x).__float__())
+        plt.plot(t, tau_x)
+        plt.show()
+
