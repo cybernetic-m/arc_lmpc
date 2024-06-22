@@ -1,0 +1,150 @@
+lap: 2
+Iteration cost: 637
+Computation time: 16.608759880065918
+lap: 3
+Iteration cost: 635
+Computation time: 14.72608995437622
+lap: 4
+Iteration cost: 633
+Computation time: 13.088488817214966
+lap: 5
+Iteration cost: 634
+Computation time: 12.781975030899048
+lap: 6
+Iteration cost: 634
+Computation time: 12.805390119552612
+lap: 7
+Iteration cost: 633
+Computation time: 12.973855018615723
+lap: 8
+Iteration cost: 632
+Computation time: 12.773406982421875
+lap: 9
+Iteration cost: 631
+Computation time: 13.900772094726562
+lap: 10
+Iteration cost: 629
+Computation time: 17.73378896713257
+lap: 11
+Iteration cost: 629
+Computation time: 16.535783052444458
+lap: 12
+Iteration cost: 628
+Computation time: 16.511134386062622
+lap: 13
+Iteration cost: 627
+Computation time: 16.998825788497925
+lap: 14
+Iteration cost: 627
+Computation time: 16.135323762893677
+lap: 15
+Iteration cost: 627
+Computation time: 16.428082942962646
+lap: 16
+Iteration cost: 625
+Computation time: 15.867592096328735
+lap: 17
+Iteration cost: 625
+Computation time: 16.249350786209106
+lap: 18
+Iteration cost: 624
+Computation time: 15.905576944351196
+lap: 19
+Iteration cost: 624
+Computation time: 16.611380100250244
+lap: 20
+Iteration cost: 623
+Computation time: 15.92016315460205
+lap: 21
+Iteration cost: 623
+Computation time: 15.819411993026733
+lap: 22
+Iteration cost: 622
+Computation time: 15.784547090530396
+lap: 23
+Iteration cost: 621
+Computation time: 15.90729022026062
+lap: 24
+Iteration cost: 621
+Computation time: 15.700176000595093
+lap: 25
+Iteration cost: 621
+Computation time: 15.96122121810913
+lap: 26
+Iteration cost: 620
+Computation time: 15.867394208908081
+lap: 27
+Iteration cost: 619
+Computation time: 15.688531160354614
+lap: 28
+Iteration cost: 619
+Computation time: 16.50113296508789
+lap: 29
+Iteration cost: 618
+Computation time: 15.775446891784668
+lap: 30
+Iteration cost: 618
+Computation time: 15.672132015228271
+lap: 31
+Iteration cost: 618
+Computation time: 15.69638204574585
+lap: 32
+Iteration cost: 617
+Computation time: 15.796581983566284
+lap: 33
+Iteration cost: 616
+Computation time: 14.983222961425781
+lap: 34
+Iteration cost: 616
+Computation time: 15.324505090713501
+lap: 35
+Iteration cost: 616
+Computation time: 15.375921964645386
+lap: 36
+Iteration cost: 615
+Computation time: 15.2436363697052
+lap: 37
+Iteration cost: 615
+Computation time: 15.647367000579834
+lap: 38
+Iteration cost: 615
+Computation time: 15.371059894561768
+lap: 39
+Iteration cost: 614
+Computation time: 15.248377084732056
+lap: 40
+Iteration cost: 614
+Computation time: 15.47455906867981
+lap: 41
+Iteration cost: 613
+Computation time: 15.244115829467773
+lap: 42
+Iteration cost: 613
+Computation time: 15.352780103683472
+lap: 43
+Iteration cost: 613
+Computation time: 15.255245208740234
+lap: 44
+Iteration cost: 613
+Computation time: 15.145702838897705
+lap: 45
+Iteration cost: 612
+Computation time: 15.279462099075317
+lap: 46
+Iteration cost: 612
+Computation time: 15.049062967300415
+lap: 47
+Iteration cost: 611
+Computation time: 15.165654182434082
+lap: 48
+Iteration cost: 611
+Computation time: 15.324963092803955
+lap: 49
+Iteration cost: 611
+Computation time: 15.064474821090698
+lap: 50
+Iteration cost: 611
+Computation time: 15.107540130615234
+lap: 51
+Iteration cost: 611
+Computation time: 15.25716495513916

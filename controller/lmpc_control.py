@@ -115,60 +115,23 @@ def run (tr, safeSet, backSight, integration, total_laps):
     opti.solver("ipopt", p_opts, s_opts) # Definition of the solver ipopt (solver for nonlinear objective and constraints)
 
     # Parameters
-    K = 10                 # Nr. of nearest neighbors
-    N_lmpc = 4              # LMPC horizon
+    K = 10                          # Nr. of nearest neighbors
+    N_lmpc = 4                      # LMPC horizon
     num_overshoot = 2*(K + N_lmpc)  # Nr. of overshooting steps
-    laps = total_laps       # Nr. of laps
-    N = 5000                # Maximum number of steps per lap
-    steps = N               # Steps to complete trajectory (or N if not completed)
-    delta = 0.1             # Time step
-    a_max = 12              # Maximum acceleration 
-    a_min = -4*a_max        # Maximum brake
-    del_max = 0.6           # Maximum steering angle - related to maximum curvature allowed
-    ddel_max = 0.05         # Maximum angular velocity of steering allowed
-    v_max = 350/3.6         # Maximum velocity (m/s)
-    EMERGENCY_LIMIT = 10    # Maximum number of consecutive emergency controls
-    delta_weight = 1        # Cost weight of the delta
-    crc = 0.01              # Control rate cost (best for now is 0.01)
-    plotLap = False         # Choose to display plots at the end of each lap
-    
-    '''# MODEL DEBUG
-    #f, p = model.get_reduced_linearized_model(tr, delta_lmpc)
-    f, p = model.get_reduced_model(tr)
-
-    state = np.array([0, 0, 0, 0], dtype=np.float64)
-    state_norm = np.array([0, 0, 0, 0], dtype=np.float64)
-    x = []
-    y = []
-    x_norm = []
-    y_norm = []
-
-    for i in range(100):
-        u = [1, 0.01*i]
-
-        A, B, C = model.get_jacobians_rk_here(tr, delta_lmpc, state, u)
-        dx = (A @ state + B @ u + C - state).full().squeeze()
-        state += dx
-        x_y = tr.sn2xy(state[1], state[2])
-        x.append(x_y[0])
-        y.append(x_y[1])
-
-        #dx_norm = delta_lmpc * f_norm(state_norm, u).full().squeeze()
-        k1 = f(state_norm, u).full().squeeze()
-        k2 = f(state_norm + 0.5 * delta_lmpc * k1, u).full().squeeze()
-        k3 = f(state_norm + 0.5 * delta_lmpc * k2, u).full().squeeze()
-        k4 = f(state_norm + delta_lmpc * k3, u).full().squeeze()
-
-        dx_norm = (k1 + 2 * k2 + 2 * k3 + k4) *delta_lmpc/6    # Runge-Kutta 4th order integration
-        state_norm += dx_norm
-        x_y = tr.sn2xy(state_norm[1], state_norm[2])
-        x_norm.append(x_y[0])
-        y_norm.append(x_y[1])
-
-    plt.plot(x, y, 'b', x_norm, y_norm, 'r')
-    plt.legend(['Linearized', 'Normal'])
-    plt.show()
-    exit()'''
+    laps = total_laps               # Nr. of laps
+    N = 5000                        # Maximum number of steps per lap
+    steps = N                       # Steps to complete trajectory (or N if not completed)
+    delta = 0.1                     # Time step
+    a_max = 12                      # Maximum acceleration 
+    a_min = -4*a_max                # Maximum brake
+    del_max = 0.6                   # Maximum steering angle - related to maximum curvature allowed
+    ddel_max = 0.05                 # Maximum angular velocity of steering allowed
+    v_max = 350/3.6                 # Maximum velocity (m/s)
+    EMERGENCY_LIMIT = 10            # Maximum number of consecutive emergency controls
+    delta_weight = 1              # Cost weight of the delta 2 best with 0.0005
+    crc = 2                  # Control rate cost (best for now is 0.01)
+    plotLap = False                 # Choose to display plots at the end of each lap
+    VELOCITY_CONTROL= False       # Choose to impose velocity on arrival
     
     # set up optimization problem
     start_time = time.time()
@@ -273,8 +236,11 @@ def run (tr, safeSet, backSight, integration, total_laps):
                 D, S, J = get_D_S_J(z, K, safeSet, backSight)
 
                 cur_opti = opti.copy()
-
-                cur_opti.subject_to( (cs.DM(D) @ Lambda)[1:] == X[1:, -1] )    # Constraint (8c)
+                
+                if VELOCITY_CONTROL:
+                         cur_opti.subject_to( (cs.DM(D) @ Lambda)[:] == X[:, -1] )     # Constraint (8c)
+                
+                else:    cur_opti.subject_to( (cs.DM(D) @ Lambda)[1:] == X[1:, -1] )  # Constraint (8c)
 
                 # Equation (8a)
                 cost = 0
@@ -298,9 +264,10 @@ def run (tr, safeSet, backSight, integration, total_laps):
                     cost += cs.if_else(cs.le(X[1, i], 1), 1, 0)
 
                     if i == 0 and t > 0:
-                        cost += crc * cs.sumsqr(U[:, i] - u_tmp[:, t])
+                        #cost += crc * cs.sumsqr(U[:, i] - u_tmp[:, t])
+                        cost += crc * cs.sumsqr(U[1, i] - u_tmp[1, t])
                     else:
-                        cost += 100 * crc * cs.sumsqr(U[:, i] - U[:, i-1])
+                        cost += crc * cs.sumsqr(U[:, i] - U[:, i-1])
 
                 cost += cs.DM(J) @ Lambda[:]
 
@@ -456,7 +423,7 @@ def run (tr, safeSet, backSight, integration, total_laps):
             last_cost += 1 if cur_x[1] < tr.s_high else 0
             current_safeSet[i].append(last_cost)    # [v, s, n, xi, lap, time, cost]
 
-        if plotLap:
+        if plotLap and lap%10==0:
             plt.figure(figsize=(10, 6))
 
             tr.plot_track(plt)
@@ -520,11 +487,11 @@ def run (tr, safeSet, backSight, integration, total_laps):
         iter_costs.append(last_cost)
         print("Iteration cost:", last_cost)
 
-        '''with open(f'costs_K_{K}.txt', 'a') as file:
+        with open(f'costs_crc_{crc}_dw_{delta_weight}_{VELOCITY_CONTROL}_MONZA.txt', 'a') as file:
             file.write(f"lap: {lap}\n")
             file.write(f"Iteration cost: {last_cost}\n")
             file.write(f"Computation time: {time.time() - lap_start_time}")
-            file.write("\n")'''
+            file.write("\n")
 
     plt_cost = plt.subplot(1,2,1)
     plt_ss = plt.subplot(1,2,2)

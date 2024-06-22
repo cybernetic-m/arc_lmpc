@@ -88,49 +88,63 @@ def animate_car(tr, x, u, x_pred_record, steps, intervals):
 
     
         ax_large_zoom.axis((p[0]- 200, p[0]+ 200, p[1]- 200, p[1]+ 200))
-
         
-        '''
         ax_small11.cla()
         ax_small11.set_xlim(0, steps)
-        ax_small11.plot(x[4, :i].T)
-        ax_small11.legend(['v'], loc = 'lower center', ncol=2)
+        ax_small11.plot(x[4, :i].T * 3.6)
+        ax_small11.set_title('Velocity [km/h]')
+        v_max = 350        
+        ax_small11.plot([0, steps], [v_max, v_max], '--k')
+        #ax_small11.legend(['v [km/h]'], loc = 'lower center', ncol=2)
 
         ax_small21.cla()
         ax_small21.set_xlim(0, steps)
-        ax_small21.plot(x[2:4, :i].T)
-        ax_small21.legend(['phi', 'beta'], loc = 'lower center', ncol=2)
+        ax_small21.plot(u[0, :i].T)
+        ax_small21.set_title('Acceleration')
+        a_max = 12          
+        a_min = -4*a_max
+        ax_small21.plot([0, steps], [a_max, a_max], '--k')
+        ax_small21.plot([0, steps], [a_min, a_min], '--k')
+        #ax_small21.legend(['a'], loc = 'lower center', ncol=2)
 
         ax_small12.cla()
         ax_small12.set_xlim(0, steps)
-        #ax_small12.plot(x[6:, :i].T)
+        ax_small12.plot(x[6, :i].T)
         
-        k_x = []
+        '''k_x = []
         for s in x[5, :i]:
             k_x.append(tr.k(s).__float__())
-        ax_small12.plot(k_x)
+        ax_small12.plot(k_x)'''
         
-        ax_small12.legend(['k'], loc = 'lower center', ncol=2)
+        #ax_small12.legend(['n'], loc = 'lower center', ncol=2)
+        ax_small12.set_title('n')
+        ax_small12.plot([0, steps], [tr.w*2/5, tr.w*2/5], '--k')
+        ax_small12.plot([0, steps], [-tr.w*2/5, -tr.w*2/5], '--k')
 
         ax_small22.cla()
-        ax_small22.axis((0, steps, a_min*1.1, a_max*1.1))
-        ax_small22.plot(u[:, :i].T)
-        ax_small22.legend(['a', 'delta'], loc = 'lower center', ncol=2)
-        '''
+        #ax_small22.axis((0, steps, a_min*1.1, a_max*1.1))
+        ax_small21.set_xlim(0, steps)
+        ax_small22.plot(u[1, :i].T)
+        ax_small22.set_title('Delta')
+        del_max = 0.6
+        ax_small22.plot([0, steps], [del_max, del_max], '--k')
+        ax_small22.plot([0, steps], [-del_max, -del_max], '--k')
+        #ax_small22.legend(['a', 'delta'], loc = 'lower center', ncol=2)
+        
 
     # display
     fig = plt.gcf()
     fig.set_size_inches(15, 8)
 
     grid = GridSpec(2, 3)
-    ax_large = plt.subplot(grid[0,:]) #[0, 0]
-    ax_large_zoom = plt.subplot(grid[1, :]) # [1, 0]
-    '''
+    ax_large = plt.subplot(grid[0,0]) #[0, 0]
+    ax_large_zoom = plt.subplot(grid[1, 0]) # [1, 0]
+    
     ax_small11 = plt.subplot(grid[0, 1])
     ax_small21 = plt.subplot(grid[1, 1])
     ax_small12 = plt.subplot(grid[0, 2])
     ax_small22 = plt.subplot(grid[1, 2])
-    '''
+    
 
     position = x[0:2, :]
     x_min = min(position[0, :])*1.1
@@ -208,16 +222,18 @@ def race(tr, x_cars, steps, intervals):
 
         ax_large.add_patch(Polygon(track_polygon, closed=True, color='black', alpha=0.5))
         
-        #indices = np.round(np.linspace(0, len(x_cars)-1, num=5)).astype(int)
-        indices = [0, 2, 7, 29]
-
+        indices = np.round(np.linspace(0, len(x_cars)-1, num=3)).astype(int)
         for car in indices:
             x = x_cars[car]
             s = x[5, i]
                 
             ax_large.axis((x_min, x_max, y_min, y_max))
  
-            if s < tr.s_high:
+            if s >= tr.s_high:
+                # Remove the car if it has finished the race
+                #x_cars.pop(car)
+                break
+            else:
                 n = x[6, i]
                 xi = x[7, i]
                 p = tr.sn2xy(s, n)
@@ -238,9 +254,6 @@ def race(tr, x_cars, steps, intervals):
 
                 ax_large.annotate(str(label), xy=(p[0] + tr.w / 4, p[1] + tr.w / 4), color='black', weight='bold', fontsize=15, ha='center', va='center', zorder=2)
                 
-            else:
-                x[5, :] = tr.s_high + 1
-                break
                 
     # Display
     fig = plt.gcf()
@@ -253,7 +266,3 @@ def race(tr, x_cars, steps, intervals):
     
     ani = FuncAnimation(plt.gcf(), animate, frames=steps, repeat=False, interval=intervals)
     plt.show()
-   
-    
-
-    
