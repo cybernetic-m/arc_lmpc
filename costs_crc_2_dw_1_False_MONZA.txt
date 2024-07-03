@@ -1,0 +1,3 @@
+lap: 2
+Iteration cost: 637
+Computation time: 18.729357957839966

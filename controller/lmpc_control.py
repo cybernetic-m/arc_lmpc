@@ -129,7 +129,7 @@ def run (tr, safeSet, backSight, integration, total_laps):
     v_max = 350/3.6                 # Maximum velocity (m/s)
     EMERGENCY_LIMIT = 10            # Maximum number of consecutive emergency controls
     delta_weight = 1              # Cost weight of the delta 2 best with 0.0005
-    crc = 2                  # Control rate cost (best for now is 0.01)
+    crc = 1                  # Control rate cost (best for now is 0.01)
     plotLap = False                 # Choose to display plots at the end of each lap
     VELOCITY_CONTROL= False       # Choose to impose velocity on arrival
     
